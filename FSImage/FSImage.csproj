@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{26B6D997-146E-4A3C-AB4A-3A3DB352A8F3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FSImage</RootNamespace>
+    <AssemblyName>FSImage</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\FSImage.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ChainManager.cs" />
+    <Compile Include="Classes\ConvertedImage.cs" />
+    <Compile Include="Classes\ImageHelper.cs" />
+    <Compile Include="Classes\ImageInfo.cs" />
+    <Compile Include="Classes\Palette.cs" />
+    <Compile Include="Enums\Endian.cs" />
+    <Compile Include="Enums\FileType.cs" />
+    <Compile Include="Enums\ImageFormat.cs" />
+    <Compile Include="Factory\IConverter.cs" />
+    <Compile Include="Factory\ImageFactory.cs" />
+    <Compile Include="FileSaveStrategies\Image565BigEndianSaver.cs" />
+    <Compile Include="FileSaveStrategies\Image565LittleEndianSaver.cs" />
+    <Compile Include="FileSaveStrategies\Image888BigEndianSaver.cs" />
+    <Compile Include="FileSaveStrategies\Image888BigEndianWithPaletteSaver.cs" />
+    <Compile Include="FileSaveStrategies\Image888LittleEndianSaver.cs" />
+    <Compile Include="FileSaveStrategies\Image888LittleEndianWithPaletteSaver.cs" />
+    <Compile Include="FileSaveStrategies\ImageSaver.cs" />
+    <Compile Include="Factory\ImageSaverFactory.cs" />
+    <Compile Include="ImageStrategies\Argb4444Strategy.cs" />
+    <Compile Include="Interfaces\IFileSaver.cs" />
+    <Compile Include="FileSaveStrategies\Rgb565BigEndianWithPaletteSaver.cs" />
+    <Compile Include="FileSaveStrategies\Rgb565LittleEndianWithPaletteSaver.cs" />
+    <Compile Include="ImageStrategies\Bgr565Strategy.cs" />
+    <Compile Include="ImageStrategies\Bgr888Strategy.cs" />
+    <Compile Include="ImageStrategies\ImageConverter.cs" />
+    <Compile Include="ImageStrategies\Rgb565Strategy.cs" />
+    <Compile Include="ImageStrategies\Rgb565WithPaletteRleStrategy.cs" />
+    <Compile Include="ImageStrategies\Rgb888Strategy.cs" />
+    <Compile Include="ImageStrategies\Rgb888WithPaletteStrategy.cs" />
+    <Compile Include="Interfaces\IImageStrategy.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ImageStrategies\Rgb565WithPaletteStrategy.cs" />
+    <Compile Include="TaskManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
